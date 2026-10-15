@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1,
+                 user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#101610" />
+  <title>Pixel Football</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="game.js" defer></script>
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Pixel Football home">
+        <span class="brand-icon">⚽</span>
+        <span>PIXEL<span class="accent">FOOTBALL</span></span>
+      </a>
+      <span class="live-label"><span class="live-dot"></span> ARCADE MODE</span>
+    </header>
+
+    <section class="hero">
+      <div class="eyebrow">RETRO FOOTBALL • YOUR RULES</div>
+      <h1>OWN THE <span>PITCH.</span></h1>
+      <p>Pick your side. Beat the rival. Make every goal count.</p>
+    </section>
+
+    <section class="game-card" aria-label="Football game">
+      <div class="scoreboard">
+        <div class="team">
+          <span class="team-badge blue">P1</span>
+          <span class="team-name">PIXEL FC</span>
+        </div>
+
+        <div class="score-area">
+          <div class="score">
+            <span id="playerScore">0</span>
+            <span class="score-dash">:</span>
+            <span id="enemyScore">0</span>
+          </div>
+          <div class="match-time" id="timer">01:30</div>
+        </div>
+
+        <div class="team team-right">
+          <span class="team-name">CPU UNITED</span>
+          <span class="team-badge red">CPU</span>
+        </div>
+      </div>
+
+      <div class="pitch-wrap" id="pitchWrap">
+        <canvas id="gameCanvas"
+                width="960" height="600"
+                aria-label="Pixel Football match field"></canvas>
+
+        <div class="overlay" id="menuOverlay">
+          <div class="overlay-panel">
+            <div class="mini-ball">⚽</div>
+            <div class="eyebrow">READY FOR KICK-OFF?</div>
+            <h2 id="overlayTitle">LET'S PLAY.</h2>
+            <p id="overlayText">
+              Score more goals than CPU before the timer hits zero.
+            </p>
+            <button class="primary-btn" id="startBtn">▶ START MATCH</button>
+            <div class="overlay-note">1 PLAYER · VS CPU · 90 SECONDS</div>
+          </div>
+        </div>
+
+        <div class="goal-flash" id="goalFlash" aria-live="polite"></div>
+      </div>
+
+      <div class="match-toolbar">
+        <span class="status-text" id="statusText">MATCH READY</span>
+        <div class="toolbar-actions">
+          <button class="small-btn" id="pauseBtn" disabled>Ⅱ PAUSE</button>
+          <button class="small-btn" id="restartBtn">↻ RESTART</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="controls-card">
+      <div class="section-heading">
+        <div>
+          <div class="eyebrow">QUICK GUIDE</div>
+          <h2>HOW TO PLAY</h2>
+        </div>
+        <span class="pixel-tag">PLAYER 1</span>
+      </div>
+
+      <div class="control-grid desktop-controls">
+        <div class="control-item">
+          <span class="key-group"><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd></span>
+          <span>Move player</span>
+        </div>
+        <div class="control-item">
+          <span class="key-group"><kbd>↑</kbd><kbd>←</kbd><kbd>↓</kbd><kbd>→</kbd></span>
+          <span>Move player</span>
+        </div>
+        <div class="control-item">
+          <span class="key-group"><kbd>SPACE</kbd></span>
+          <span>Kick the ball</span>
+        </div>
+        <div class="control-item">
+          <span class="key-group"><kbd>SHIFT</kbd></span>
+          <span>Sprint</span>
+        </div>
+        <div class="control-item">
+          <span class="key-group"><kbd>P</kbd></span>
+          <span>Pause / resume</span>
+        </div>
+      </div>
+
+      <p class="mobile-hint">
+        📱 On mobile, hold the joystick to move. Tap KICK near the ball.
+        Turn your phone sideways for the best experience.
+      </p>
+    </section>
+
+    <footer>
+      <span>PIXEL FOOTBALL <span class="accent">© 2026</span></span>
+      <span>MADE FOR THE LOVE OF THE GAME.</span>
+    </footer>
+  </main>
+
+  <div class="mobile-controls" id="mobileControls">
+    <div class="joystick-area">
+      <div class="joystick-base" id="joystick">
+        <div class="joystick-knob" id="joystickKnob"></div>
+      </div>
+    </div>
+    <div class="action-buttons">
+      <button class="action-btn sprint-btn" id="sprintBtn">SPRINT</button>
+      <button class="action-btn kick-btn" id="kickBtn">KICK ⚽</button>
+    </div>
+  </div>
+</body>
+</html>
